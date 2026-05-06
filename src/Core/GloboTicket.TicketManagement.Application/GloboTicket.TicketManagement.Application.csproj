@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>ffef18a5-e7bf-4997-bb52-1125fb3bb4be</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Contracts/" />
+    <Folder Include="Contracts/Persistence/" />
+    <Folder Include="Features/Categories/" />
+    <Folder Include="Features/Categories/Commands/" />
+    <Folder Include="Features/Categories/Queries/" />
+    <Folder Include="Features/Events/Commands/" />
+    <Folder Include="Features/Events/Commands/CreateEvent/" />
+    <Folder Include="Features/Events/Commands/DeleteEvent/" />
+    <Folder Include="Features/Events/Commands/UpdateEvent/" />
+    <Folder Include="Features/Events/Queries/GetEventsExport/" />
+    <Folder Include="Features/Orders/" />
+    <Folder Include="Features/Orders/Commands/" />
+    <Folder Include="Features/Orders/Queries/" />
+    <Folder Include="Profiles/" />
+    <Folder Include="Responses/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../GloboTicket.TicketManagement.Domain/GloboTicket.TicketManagement.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="16.1.1" />
+    <PackageReference Include="FluentValidation" Version="12.1.1" />   
+    <PackageReference Include="MediatR" Version="14.1.0" />
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.7" />
+
+  </ItemGroup>
+
+</Project>
