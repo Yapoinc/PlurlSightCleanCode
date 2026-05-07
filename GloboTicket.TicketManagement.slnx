@@ -1,6 +1,8 @@
 <Solution>
   <Folder Name="/src/" />
-  <Folder Name="/src/API/" />
+  <Folder Name="/src/API/">
+    <Project Path="src/API/GloboTicket.TicketManagement.Api/GloboTicket.TicketManagement.Api.csproj" />
+  </Folder>
   <Folder Name="/src/Core/">
     <Project Path="src/Core/GloboTicket.TicketManagement.Application/GloboTicket.TicketManagement.Application.csproj" />
     <Project Path="src/Core/GloboTicket.TicketManagement.Domain/GloboTicket.TicketManagement.Domain.csproj" />

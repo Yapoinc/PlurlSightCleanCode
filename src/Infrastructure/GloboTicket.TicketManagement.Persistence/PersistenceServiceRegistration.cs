@@ -10,15 +10,12 @@ namespace GloboTicket.TicketManagement.Persistence
     {
         public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<GloboTicketDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("GloboTicketTicketManagementConnectionString")));
-
+            var connectionString = configuration.GetSection("ConnectionStrings:GloboTicketTicketManagementConnectionString").Value;
+            services.AddDbContext<GloboTicketDbContext>(options =>options.UseSqlServer(connectionString));
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
-
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
-
             return services;
         }
     }
