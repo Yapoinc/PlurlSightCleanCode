@@ -63,7 +63,7 @@ public static class StartupExtensions
                 await context.Database.MigrateAsync();
             }
         }
-        catch (Exception ex)
+        catch (Exception)
         {
            // add loggin here
         } 

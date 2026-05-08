@@ -14,5 +14,13 @@ namespace GloboTicket.TicketManagement.Persistence.Repositories
             var matches = _dbContext.Events.Any(e => e.Name.Equals(name) && e.Date.Date.Equals(eventDate.Date));
             return Task.FromResult(matches);
         }
+
+        public Task<IReadOnlyList<Event>> ListAllOrderByDateAsync(int page, int pageSize)
+        {
+            var skip = (page - 1) * pageSize;
+            var rows = pageSize;
+            var data = _dbContext.Events.OrderBy(x => x.Date).Skip(skip).Take(rows).ToList();
+            return Task.FromResult((IReadOnlyList<Event>)data);
+        }
     }
 }

@@ -18,10 +18,8 @@ internal class GetEventsListQueryHandler : IRequestHandler<GetEventsListQuery, L
     }
     public async Task<List<EventListVm>> Handle(GetEventsListQuery request, CancellationToken cancellationToken)
     {
-        var skip = (request.Page - 1) * request.PageSize;
-        var rows = request.PageSize;
         var allEvents = (await _eventRepository
-        .ListAllAsync(skip, rows))
+        .ListAllAsync(request.Page , request.PageSize))
         .OrderBy(x => x.Date);
 
         var allEventsVm = _mapper

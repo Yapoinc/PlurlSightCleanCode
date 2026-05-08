@@ -24,8 +24,10 @@ namespace GloboTicket.TicketManagement.Persistence.Repositories
             return await _set.FindAsync(id);
         }
 
-        public virtual async Task<IReadOnlyList<T>> ListAllAsync(int skip, int rows)
+        public virtual async Task<IReadOnlyList<T>> ListAllAsync(int page, int pageSize)
         {
+            var skip = (page - 1) * pageSize;
+            var rows = pageSize;        
             return await _set.Skip(skip).Take(rows).ToListAsync();
         }
 

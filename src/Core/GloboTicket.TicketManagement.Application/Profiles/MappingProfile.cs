@@ -9,6 +9,7 @@ using GloboTicket.TicketManagement.Application.Features.Categories.Commands.Crea
 using GloboTicket.TicketManagement.Application.Features.Orders.Queries.GetOrdersForMonth;
 using GloboTicket.TicketManagement.Application.Features.Events.Commands.CreateEvent;
 using GloboTicket.TicketManagement.Application.Features.Events.Commands.UpdateEvent;
+using GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventsExport;
 
 namespace GloboTicket.TicketManagement.Application.Profiles;
 
@@ -19,7 +20,7 @@ public class MappingProfile : Profile
         CreateMap<Event, EventListVm>().ReverseMap();
         CreateMap<Event, EventDetailVm>().ReverseMap();
         CreateMap<Event, CategoryEventDto>().ReverseMap();
-        // CreateMap<Event, EventExportDto>().ReverseMap();
+        CreateMap<Event, EventExportDto>().ReverseMap();
 
         CreateMap<Event, CreateEventCommand>().ReverseMap();
         CreateMap<Event, UpdateEventCommand>().ReverseMap();

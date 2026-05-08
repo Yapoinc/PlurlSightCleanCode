@@ -19,10 +19,7 @@ namespace GloboTicket.TicketManagement.Application.Features.Categories.Queries.G
 
         public async Task<List<CategoryListVm>> Handle(GetCategoriesListQuery request, CancellationToken cancellationToken)
         {
-            var skip = (request.Page - 1) * request.PageSize;
-            var rows = request.PageSize;
-           
-            var allCategories = (await _categoryRepository.ListAllAsync(skip, rows)).OrderBy(x => x.Name);
+            var allCategories = (await _categoryRepository.ListAllAsync(request.Page, request.PageSize)).OrderBy(x => x.Name);
             return _mapper.Map<List<CategoryListVm>>(allCategories);
         }
     }

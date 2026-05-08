@@ -20,16 +20,14 @@
     <PackageReference Include="MediatR" Version="14.1.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference
-      Include="../../Core/GloboTicket.TicketManagement.Application/GloboTicket.TicketManagement.Application.csproj" />
-    <ProjectReference
-      Include="../../Infrastructure/GloboTicket.TicketManagement.Infrastructure/GloboTicket.TicketManagement.Infrastructure.csproj" />
-    <ProjectReference
-      Include="../../Infrastructure/GloboTicket.TicketManagement.Persistence/GloboTicket.TicketManagement.Persistence.csproj" />
+    <ProjectReference Include="../../Core/GloboTicket.TicketManagement.Application/GloboTicket.TicketManagement.Application.csproj" />
+    <ProjectReference Include="../../Infrastructure/GloboTicket.TicketManagement.Infrastructure/GloboTicket.TicketManagement.Infrastructure.csproj" />
+    <ProjectReference Include="../../Infrastructure/GloboTicket.TicketManagement.Persistence/GloboTicket.TicketManagement.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers/" />
+    <Folder Include="Utility/" />
   </ItemGroup>
 
 </Project>
