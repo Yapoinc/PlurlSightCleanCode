@@ -12,5 +12,9 @@
     <Project Path="src/Infrastructure/GloboTicket.TicketManagement.Persistence/GloboTicket.TicketManagement.Persistence.csproj" />
   </Folder>
   <Folder Name="/src/UI/" />
-  <Folder Name="/test/" />
+  <Folder Name="/test/">
+    <Project Path="test/GloboTicket.TicketManagement.API.IntegrationTests/GloboTicket.TicketManagement.API.IntegrationTests.csproj" />
+    <Project Path="test/GloboTicket.TicketManagement.Application.UnitTests/GloboTicket.TicketManagement.Application.UnitTests.csproj" />
+    <Project Path="test/GloboTicket.TicketManagement.Persistence.IntegrationTests/GloboTicket.TicketManagement.Persistence.IntegrationTests.csproj" />
+  </Folder>
 </Solution>

@@ -6,45 +6,45 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GloboTicket.TicketManagement.Api.Controllers
+namespace GloboTicket.TicketManagement.Api.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class CategoryController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class CategoryController : ControllerBase
+    private readonly IMediator _mediator;
+
+    public CategoryController(IMediator mediator)
     {
-        private readonly IMediator _mediator;
+        _mediator = mediator;
+    }
 
-        public CategoryController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
-
-        [HttpGet("all", Name = "GetAllCategories")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<List<CategoryListVm>>> GetAllCategories(int page = 1, int pageSize = 50)
-        {
-            var dtos = await _mediator.Send(new GetCategoriesListQuery(page, pageSize));
-            return Ok(dtos);
-        }
+    [HttpGet("all", Name = "GetAllCategories")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult<List<CategoryListVm>>> GetAllCategories(int page = 1, int pageSize = 50)
+    {
+        var dtos = await _mediator.Send(new GetCategoriesListQuery(page, pageSize));
+        return Ok(dtos);
+    }
 
 
-        [HttpGet("allwithevents", Name = "GetCategoriesWithEvents")]
-        [ProducesDefaultResponseType]
-        [ProducesResponseType(StatusCodes.Status200OK)]
+    [HttpGet("allwithevents", Name = "GetCategoriesWithEvents")]
+    [ProducesDefaultResponseType]
+    [ProducesResponseType(StatusCodes.Status200OK)]
 
-        public async Task<ActionResult<List<CategoryEventListVm>>> GetCategoriesWithEvents(bool includeHistory)
-        {
-            GetCategoriesListWithEventsQuery getCategoriesListWithEventsQuery = new GetCategoriesListWithEventsQuery() { IncludeHistory = includeHistory };
+    public async Task<ActionResult<List<CategoryEventListVm>>> GetCategoriesWithEvents(bool includeHistory)
+    {
+        GetCategoriesListWithEventsQuery getCategoriesListWithEventsQuery = new GetCategoriesListWithEventsQuery() { IncludeHistory = includeHistory };
 
-            var dtos = await _mediator.Send(getCategoriesListWithEventsQuery);
-            return Ok(dtos);
-        }
+        var dtos = await _mediator.Send(getCategoriesListWithEventsQuery);
+        return Ok(dtos);
+    }
 
-        [HttpPost(Name = "AddCategory")]
-        public async Task<ActionResult<CreateCategoryCommandResponse>> Create([FromBody] CreateCategoryCommand createCategoryCommand)
-        {
-            var response = await _mediator.Send(createCategoryCommand);
-            return Ok(response);
-        }
+    [HttpPost(Name = "AddCategory")]
+    public async Task<ActionResult<CreateCategoryCommandResponse>> Create([FromBody] CreateCategoryCommand createCategoryCommand)
+    {
+        var response = await _mediator.Send(createCategoryCommand);
+        return Ok(response);
     }
 }
+

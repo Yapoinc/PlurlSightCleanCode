@@ -1,16 +1,16 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GloboTicket.TicketManagement.Api.Controllers
+namespace GloboTicket.TicketManagement.Api.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class TestController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class TestController : ControllerBase
+    [HttpGet]
+    public IActionResult Get()
     {
-        [HttpGet]
-        public IActionResult Get()
-        {
-            return Ok("Hello World!");
-        }
+        return Ok("Hello World!");
     }
 }
+

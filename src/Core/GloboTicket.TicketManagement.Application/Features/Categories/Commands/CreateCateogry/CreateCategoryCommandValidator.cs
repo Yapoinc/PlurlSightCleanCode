@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 
-namespace GloboTicket.TicketManagement.Application.Features.Categories.Commands.CreateCateogry
-{
+namespace GloboTicket.TicketManagement.Application.Features.Categories.Commands.CreateCateogry;
+
     public class CreateCategoryCommandValidator: AbstractValidator<CreateCategoryCommand>
     {
         public CreateCategoryCommandValidator()
@@ -12,4 +12,4 @@ namespace GloboTicket.TicketManagement.Application.Features.Categories.Commands.
                 .MaximumLength(50).WithMessage("{PropertyName} must not exceed 10 characters.");
         }
     }
-}
+
