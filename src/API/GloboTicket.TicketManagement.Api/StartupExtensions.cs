@@ -10,10 +10,7 @@ namespace GloboTicket.TicketManagement.Api;
 
 public static class StartupExtensions
 {
-    public static void AddOpenApi(this IServiceCollection services)
-    {
-
-    }
+   
 
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
