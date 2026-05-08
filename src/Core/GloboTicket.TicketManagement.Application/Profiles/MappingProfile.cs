@@ -17,23 +17,21 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<Event, EventListVm>().ReverseMap();
-        CreateMap<Event, EventDetailVm>().ReverseMap();
-        CreateMap<Event, CategoryEventDto>().ReverseMap();
-        CreateMap<Event, EventExportDto>().ReverseMap();
+         CreateMap<Event, EventListVm>().ReverseMap();
+            CreateMap<Event, EventDetailVm>().ReverseMap();
+            CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<Category, CategoryListVm>().ReverseMap();
+            CreateMap<Category, CategoryEventListVm>().ReverseMap();
+            CreateMap<Category, CreateCategoryCommand>().ReverseMap();
+            CreateMap<Category, CreateCategoryDto>().ReverseMap();
+            CreateMap<Event, CategoryEventDto>().ReverseMap();
+            CreateMap<Event, EventExportDto>().ReverseMap();
 
-        CreateMap<Event, CreateEventCommand>().ReverseMap();
-        CreateMap<Event, UpdateEventCommand>().ReverseMap();
-        CreateMap<Event, CategoryEventDto>().ReverseMap();
-        
-        CreateMap<Category, CategoryDto>().ReverseMap();
-        CreateMap<Category, CategoryListVm>().ReverseMap();
-        CreateMap<Category, CategoryEventListVm>().ReverseMap();
-        CreateMap<Category, CreateCategoryCommand>().ReverseMap();
-        CreateMap<Category, CreateCategoryDto>().ReverseMap();
-        
+            CreateMap<Event, CreateEventCommand>().ReverseMap();
+            CreateMap<Event, UpdateEventCommand>().ReverseMap();
+            CreateMap<Event, CategoryEventDto>().ReverseMap();
 
-        CreateMap<Order, OrdersForMonthDto>();
+            CreateMap<Order, OrdersForMonthDto>();
     }
 
 }

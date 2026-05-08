@@ -1,4 +1,5 @@
 using GloboTicket.TicketManagement.Application;
+using GloboTicket.TicketManagement.Application.Contracts;
 using GloboTicket.TicketManagement.Infrastructure;
 using GloboTicket.TicketManagement.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -10,18 +11,18 @@ namespace GloboTicket.TicketManagement.Api;
 
 public static class StartupExtensions
 {
-   
-
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddApplicationServices();
         builder.Services.AddInfrastructureServices(builder.Configuration);
         builder.Services.AddPersistenceServices(builder.Configuration);
+        builder.Services.AddScoped<ILoggedInUserService, LoggedInUserService>();
+        builder.Services.AddHttpContextAccessor();
         builder.Services.AddControllers();
         builder.Services.AddOpenApi();
         builder.Services.AddCors(
                 options => options.AddPolicy(
-                    "open", policy => 
+                    "open", policy =>
                     policy.WithOrigins([
                     builder.Configuration["ApiUrl"] ?? "https://localhost:7081",
                     builder.Configuration["BlazorUrl"] ?? "https://localhost:7080"])
@@ -62,9 +63,9 @@ public static class StartupExtensions
         }
         catch (Exception)
         {
-           // add loggin here
-        } 
-        
+            // add loggin here
+        }
+
     }
 
 }

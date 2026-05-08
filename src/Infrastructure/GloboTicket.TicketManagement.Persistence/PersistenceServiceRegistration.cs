@@ -10,8 +10,8 @@ public static class PersistenceServiceRegistration
 {
     public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetSection("ConnectionStrings:GloboTicketTicketManagementConnectionString").Value;
-        services.AddDbContext<GloboTicketDbContext>(options => options.UseSqlServer(connectionString));
+        services.AddDbContext<GloboTicketDbContext>(options =>
+        options.UseSqlServer(configuration.GetConnectionString("GloboTicketTicketManagementConnectionString")));
         services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IEventRepository, EventRepository>();
