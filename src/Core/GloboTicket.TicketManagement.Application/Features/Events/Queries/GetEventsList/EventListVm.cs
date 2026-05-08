@@ -2,7 +2,7 @@ using System;
 
 namespace GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventsList;
 
-internal class EventListVm
+public class EventListVm
 {
     public Guid EventId { get; set; }
     public string Name { get; set; } = string.Empty;

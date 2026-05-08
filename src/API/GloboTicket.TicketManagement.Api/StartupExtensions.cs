@@ -45,7 +45,7 @@ public static class StartupExtensions
             app.MapScalarApiReference();
         }
         // app.UseHttpsRedirection();
-        app.UseAuthorization();
+        // app.UseAuthorization();
         app.MapControllers();
         return app;
     }

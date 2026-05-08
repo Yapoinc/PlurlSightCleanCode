@@ -4,7 +4,17 @@ namespace GloboTicket.TicketManagement.Application.Features.Categories.Queries.G
 {
     public class GetCategoriesListQuery : IRequest<List<CategoryListVm>>
     {
-        public int Page { get; set; } = 1;
-        public int PageSize { get; set; } = 50;
+        public GetCategoriesListQuery(int page, int pageSize)
+        {
+            Page = page;
+            PageSize = pageSize;
+        }
+        public GetCategoriesListQuery()
+        {
+            Page = 1;
+            PageSize = 50;
+        }
+        public int Page { get; set; }
+        public int PageSize { get; set; }
     }
 }
