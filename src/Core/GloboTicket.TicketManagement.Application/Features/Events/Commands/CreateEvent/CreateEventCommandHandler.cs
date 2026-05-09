@@ -48,7 +48,7 @@ public class CreateEventCommandHandler : IRequestHandler<CreateEventCommand, Gui
             catch (Exception ex)
             {
                 //this shouldn't stop the API from doing else so this can be logged
-                // _logger.LogError($"Mailing about event {@event.EventId} failed due to an error with the mail service: {ex.Message}");
+                 _logger.LogError($"Mailing about event {@event.EventId} failed due to an error with the mail service: {ex.Message}");
             }
 
             return @event.EventId;

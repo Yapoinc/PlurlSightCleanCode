@@ -13,9 +13,7 @@
     <Folder Include="Features/Categories/" />
     <Folder Include="Features/Categories/Commands/" />
     <Folder Include="Features/Categories/Queries/" />
-    <Folder Include="Features/Events/Commands/" />
     <Folder Include="Features/Events/Commands/CreateEvent/" />
-    <Folder Include="Features/Events/Commands/DeleteEvent/" />
     <Folder Include="Features/Events/Commands/UpdateEvent/" />
     <Folder Include="Features/Events/Queries/GetEventsExport/" />
     <Folder Include="Features/Orders/" />
