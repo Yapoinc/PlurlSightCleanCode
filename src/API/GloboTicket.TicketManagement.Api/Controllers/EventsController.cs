@@ -71,7 +71,8 @@ public class EventsController : Controller
     public async Task<FileResult> ExportEvents()
     {
         var fileDto = await _mediator.Send(new GetEventsExportQuery());
-
+        if(fileDto==null || fileDto.Data == null || fileDto.ContentType == null || fileDto.EventExportFileName == null)
+             throw new Exception("Error exporting events");
         return File(fileDto.Data, fileDto.ContentType, fileDto.EventExportFileName);
     }
 

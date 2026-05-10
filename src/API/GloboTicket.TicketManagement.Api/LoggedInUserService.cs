@@ -14,7 +14,8 @@ public class LoggedInUserService : ILoggedInUserService
     {
         get
         {
-            return _contextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
+            
+            return _contextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier)??"";
         }
     }
 }
